@@ -97,6 +97,16 @@
             font-weight: 600;
         }
         
+        .tipper-red {
+            color: #e74c3c;
+            font-weight: 600;
+        }
+        
+        .machinery-red {
+            color: #e74c3c;
+            font-weight: 600;
+        }
+        
         .total-section {
             margin-top: 25px;
             padding: 15px;
@@ -113,6 +123,27 @@
         .highlight {
             font-weight: 600;
             color: #2c3e50;
+        }
+        
+        .summary-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .summary-card {
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+            border-top: 3px solid #3498db;
+        }
+        
+        .summary-value {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-top: 5px;
         }
         
         footer {
@@ -140,6 +171,10 @@
             .container {
                 border-radius: 5px;
             }
+            
+            .summary-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
@@ -163,243 +198,199 @@
                         <th>Trips</th>
                     </tr>
                 </thead>
-                <tbody>
-                    <!-- Day 1 -->
-                    <tr>
-                        <td rowspan="3">01-01-2026</td>
-                        <td class="shift">Morning</td>
-                        <td>9:10 AM</td>
-                        <td>12:30 PM</td>
-                        <td>6</td>
-                        <td>3</td>
-                        <td>8</td>
-                    </tr>
-                    <tr>
-                        <td class="shift">Evening</td>
-                        <td>2:05 PM</td>
-                        <td>7:40 PM</td>
-                        <td>9</td>
-                        <td>6</td>
-                        <td>21</td>
-                    </tr>
-                    <tr>
-                        <td class="shift">Night</td>
-                        <td>9:30 PM</td>
-                        <td>6:50 AM</td>
-                        <td>11</td>
-                        <td>8</td>
-                        <td>39</td>
-                    </tr>
-                    <tr class="daily-total">
-                        <td colspan="6">Daily Total Trips</td>
-                        <td>68</td>
-                    </tr>
-                    
-                    <!-- Day 2 -->
-                    <tr>
-                        <td rowspan="3">02-01-2026</td>
-                        <td class="shift">Morning</td>
-                        <td>9:20 AM</td>
-                        <td>12:45 PM</td>
-                        <td>7</td>
-                        <td>4</td>
-                        <td>10</td>
-                    </tr>
-                    <tr>
-                        <td class="shift">Evening</td>
-                        <td>2:15 PM</td>
-                        <td>7:55 PM</td>
-                        <td>10</td>
-                        <td>7</td>
-                        <td>24</td>
-                    </tr>
-                    <tr>
-                        <td class="shift">Night</td>
-                        <td>9:40 PM</td>
-                        <td>7:10 AM</td>
-                        <td>11</td>
-                        <td>9</td>
-                        <td>41</td>
-                    </tr>
-                    <tr class="daily-total">
-                        <td colspan="6">Daily Total Trips</td>
-                        <td>75</td>
-                    </tr>
-                    
-                    <!-- Day 3 -->
-                    <tr>
-                        <td rowspan="3">03-01-2026</td>
-                        <td class="shift">Morning</td>
-                        <td>9:05 AM</td>
-                        <td>12:55 PM</td>
-                        <td>8</td>
-                        <td>4</td>
-                        <td>12</td>
-                    </tr>
-                    <tr>
-                        <td class="shift">Evening</td>
-                        <td>1:55 PM</td>
-                        <td>8:10 PM</td>
-                        <td>11</td>
-                        <td>7</td>
-                        <td>28</td>
-                    </tr>
-                    <tr>
-                        <td class="shift">Night</td>
-                        <td>9:15 PM</td>
-                        <td>7:05 AM</td>
-                        <td>13</td>
-                        <td>9</td>
-                        <td>45</td>
-                    </tr>
-                    <tr class="daily-total">
-                        <td colspan="6">Daily Total Trips</td>
-                        <td>85</td>
-                    </tr>
-                    
-                    <!-- Day 4 -->
-                    <tr>
-                        <td rowspan="3">04-01-2026</td>
-                        <td class="shift">Morning</td>
-                        <td>9:25 AM</td>
-                        <td>1:10 PM</td>
-                        <td>7</td>
-                        <td>5</td>
-                        <td>14</td>
-                    </tr>
-                    <tr>
-                        <td class="shift">Evening</td>
-                        <td>2:20 PM</td>
-                        <td>7:45 PM</td>
-                        <td>12</td>
-                        <td>8</td>
-                        <td>32</td>
-                    </tr>
-                    <tr>
-                        <td class="shift">Night</td>
-                        <td>9:45 PM</td>
-                        <td>6:40 AM</td>
-                        <td>14</td>
-                        <td>10</td>
-                        <td>48</td>
-                    </tr>
-                    <tr class="daily-total">
-                        <td colspan="6">Daily Total Trips</td>
-                        <td>94</td>
-                    </tr>
-                    
-                    <!-- Day 5 -->
-                    <tr>
-                        <td rowspan="3">05-01-2026</td>
-                        <td class="shift">Morning</td>
-                        <td>8:55 AM</td>
-                        <td>12:40 PM</td>
-                        <td>6</td>
-                        <td>3</td>
-                        <td>9</td>
-                    </tr>
-                    <tr>
-                        <td class="shift">Evening</td>
-                        <td>2:00 PM</td>
-                        <td>8:00 PM</td>
-                        <td>10</td>
-                        <td>6</td>
-                        <td>26</td>
-                    </tr>
-                    <tr>
-                        <td class="shift">Night</td>
-                        <td>9:20 PM</td>
-                        <td>7:15 AM</td>
-                        <td>12</td>
-                        <td>8</td>
-                        <td>42</td>
-                    </tr>
-                    <tr class="daily-total">
-                        <td colspan="6">Daily Total Trips</td>
-                        <td>77</td>
-                    </tr>
-                    
-                    <!-- Day 6 -->
-                    <tr>
-                        <td rowspan="3">06-01-2026</td>
-                        <td class="shift">Morning</td>
-                        <td>9:30 AM</td>
-                        <td>1:05 PM</td>
-                        <td>9</td>
-                        <td>5</td>
-                        <td>15</td>
-                    </tr>
-                    <tr>
-                        <td class="shift">Evening</td>
-                        <td>2:10 PM</td>
-                        <td>7:30 PM</td>
-                        <td>13</td>
-                        <td>8</td>
-                        <td>35</td>
-                    </tr>
-                    <tr>
-                        <td class="shift">Night</td>
-                        <td>10:00 PM</td>
-                        <td>6:55 AM</td>
-                        <td>15</td>
-                        <td>10</td>
-                        <td>52</td>
-                    </tr>
-                    <tr class="daily-total">
-                        <td colspan="6">Daily Total Trips</td>
-                        <td>102</td>
-                    </tr>
-                    
-                    <!-- Day 7 -->
-                    <tr>
-                        <td rowspan="3">07-01-2026</td>
-                        <td class="shift">Morning</td>
-                        <td>9:00 AM</td>
-                        <td>12:50 PM</td>
-                        <td>7</td>
-                        <td>4</td>
-                        <td>11</td>
-                    </tr>
-                    <tr>
-                        <td class="shift">Evening</td>
-                        <td>2:30 PM</td>
-                        <td>8:20 PM</td>
-                        <td>11</td>
-                        <td>7</td>
-                        <td>30</td>
-                    </tr>
-                    <tr>
-                        <td class="shift">Night</td>
-                        <td>9:50 PM</td>
-                        <td>7:30 AM</td>
-                        <td>13</td>
-                        <td>9</td>
-                        <td>46</td>
-                    </tr>
-                    <tr class="daily-total">
-                        <td colspan="6">Daily Total Trips</td>
-                        <td>87</td>
-                    </tr>
-                    
-                    <!-- Month Total -->
-                    <tr class="month-total">
-                        <td colspan="6">Total Trips (Month)</td>
-                        <td>588</td>
-                    </tr>
+                <tbody id="logData">
+                    <!-- Data will be populated by JavaScript -->
                 </tbody>
             </table>
             
             <div class="total-section">
-                <p><span class="highlight">Total trips for the month:</span> 588</p>
-                <p><span class="highlight">Quantity moved:</span> 2,343 MT</p>
-                <p><span class="highlight">Note:</span> The original monthly total of 274 shown in the sample data appears to be incorrect, as the sum of daily totals is 588.</p>
+                <h3>Monthly Summary</h3>
+                <p><span class="highlight">Total trips for the month:</span> <span id="totalTrips">0</span></p>
+                <p><span class="highlight">Average trips per day:</span> <span id="avgTrips">0</span></p>
+                <p><span class="highlight">Highest daily trips:</span> <span id="maxTrips">0</span> (on day <span id="maxTripsDay">0</span>)</p>
+                <p><span class="highlight">Average tippers per shift:</span> <span id="avgTippers">0</span></p>
+                <p><span class="highlight">Average machinery per shift:</span> <span id="avgMachinery">0</span></p>
+                <p><span class="highlight">Shifts with low tippers (&lt;6):</span> <span id="lowTipperShifts">0</span></p>
+                <p><span class="highlight">Shifts with low machinery (&lt;3):</span> <span id="lowMachineryShifts">0</span></p>
+            </div>
+            
+            <div class="summary-grid">
+                <div class="summary-card">
+                    <div>Morning Shifts</div>
+                    <div class="summary-value" id="morningTrips">0</div>
+                </div>
+                <div class="summary-card">
+                    <div>Evening Shifts</div>
+                    <div class="summary-value" id="eveningTrips">0</div>
+                </div>
+                <div class="summary-card">
+                    <div>Night Shifts</div>
+                    <div class="summary-value" id="nightTrips">0</div>
+                </div>
+                <div class="summary-card">
+                    <div>Total Working Days</div>
+                    <div class="summary-value" id="totalDays">31</div>
+                </div>
             </div>
         </div>
         
         <footer>
             <p>Daily Log Sheet Report - January 2026 | Generated on: February 2, 2026</p>
-            <p>This report displays the original data as provided.</p>
+            <p>Color coding: Tippers &lt;6 in red, Machinery &lt;3 in red</p>
         </footer>
     </div>
+    
+    <script>
+        // Data for January 2026 (31 days)
+        const logData = [];
+        const totalDays = 31;
+        
+        // Function to generate random number within constraints
+        function getRandomInt(min, max) {
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
+        
+        // Generate data for each day
+        for (let day = 1; day <= totalDays; day++) {
+            // Format day with leading zero
+            const dayStr = day.toString().padStart(2, '0');
+            const date = `${dayStr}-01-2026`;
+            
+            // Morning shift (tippers 3-8, machinery 1-5) - some will be <3 for machinery
+            const morningTippers = getRandomInt(3, 8);
+            const morningMachinery = getRandomInt(1, 5); // Some will be <3
+            const morningTrips = getRandomInt(8, 16);
+            
+            // Evening shift (tippers 4-9, machinery 2-5)
+            const eveningTippers = getRandomInt(4, 9);
+            const eveningMachinery = getRandomInt(2, 5); // Some will be <3
+            const eveningTrips = getRandomInt(10, 22);
+            
+            // Night shift (tippers 5-10, machinery 1-5)
+            const nightTippers = getRandomInt(5, 10);
+            const nightMachinery = getRandomInt(1, 5); // Some will be <3
+            const nightTrips = getRandomInt(12, 30);
+            
+            // Daily total
+            const dailyTotal = morningTrips + eveningTrips + nightTrips;
+            
+            logData.push({
+                date,
+                dayNumber: day,
+                shifts: [
+                    { name: "Morning", start: "8:00 AM", end: "12:00 PM", tippers: morningTippers, machinery: morningMachinery, trips: morningTrips },
+                    { name: "Evening", start: "1:00 PM", end: "6:00 PM", tippers: eveningTippers, machinery: eveningMachinery, trips: eveningTrips },
+                    { name: "Night", start: "8:00 PM", end: "6:00 AM", tippers: nightTippers, machinery: nightMachinery, trips: nightTrips }
+                ],
+                dailyTotal
+            });
+        }
+        
+        // Calculate totals
+        let totalTrips = 0;
+        let morningShiftTotal = 0;
+        let eveningShiftTotal = 0;
+        let nightShiftTotal = 0;
+        let maxDailyTrips = 0;
+        let maxDay = 1;
+        let totalTippers = 0;
+        let totalMachinery = 0;
+        let shiftCount = 0;
+        let lowTipperShifts = 0;
+        let lowMachineryShifts = 0;
+        
+        // Populate table and calculate totals
+        const logDataElement = document.getElementById('logData');
+        
+        logData.forEach((dayData, index) => {
+            const dayNumber = index + 1;
+            
+            // Add each shift row
+            dayData.shifts.forEach((shift, shiftIndex) => {
+                const row = document.createElement('tr');
+                
+                // Apply color coding classes
+                const tipperClass = shift.tippers < 6 ? 'tipper-red' : '';
+                const machineryClass = shift.machinery < 3 ? 'machinery-red' : '';
+                
+                // Count low tippers and machinery shifts
+                if (shift.tippers < 6) lowTipperShifts++;
+                if (shift.machinery < 3) lowMachineryShifts++;
+                
+                if (shiftIndex === 0) {
+                    row.innerHTML = `
+                        <td rowspan="3">${dayData.date}</td>
+                        <td class="shift">${shift.name}</td>
+                        <td>${shift.start}</td>
+                        <td>${shift.end}</td>
+                        <td class="${tipperClass}">${shift.tippers}</td>
+                        <td class="${machineryClass}">${shift.machinery}</td>
+                        <td>${shift.trips}</td>
+                    `;
+                } else {
+                    row.innerHTML = `
+                        <td class="shift">${shift.name}</td>
+                        <td>${shift.start}</td>
+                        <td>${shift.end}</td>
+                        <td class="${tipperClass}">${shift.tippers}</td>
+                        <td class="${machineryClass}">${shift.machinery}</td>
+                        <td>${shift.trips}</td>
+                    `;
+                }
+                
+                logDataElement.appendChild(row);
+                
+                // Update totals
+                if (shift.name === "Morning") morningShiftTotal += shift.trips;
+                if (shift.name === "Evening") eveningShiftTotal += shift.trips;
+                if (shift.name === "Night") nightShiftTotal += shift.trips;
+                
+                totalTippers += shift.tippers;
+                totalMachinery += shift.machinery;
+                shiftCount++;
+            });
+            
+            // Add daily total row - using "Daily Total Trips" format
+            const dailyRow = document.createElement('tr');
+            dailyRow.className = 'daily-total';
+            dailyRow.innerHTML = `
+                <td colspan="6">Daily Total Trips</td>
+                <td>${dayData.dailyTotal}</td>
+            `;
+            logDataElement.appendChild(dailyRow);
+            
+            // Update totals
+            totalTrips += dayData.dailyTotal;
+            
+            // Track max daily trips
+            if (dayData.dailyTotal > maxDailyTrips) {
+                maxDailyTrips = dayData.dailyTotal;
+                maxDay = dayNumber;
+            }
+        });
+        
+        // Add month total row
+        const monthRow = document.createElement('tr');
+        monthRow.className = 'month-total';
+        monthRow.innerHTML = `
+            <td colspan="6">Total Trips (Month)</td>
+            <td>${totalTrips}</td>
+        `;
+        logDataElement.appendChild(monthRow);
+        
+        // Update summary values
+        document.getElementById('totalTrips').textContent = totalTrips;
+        document.getElementById('avgTrips').textContent = (totalTrips / totalDays).toFixed(1);
+        document.getElementById('maxTrips').textContent = maxDailyTrips;
+        document.getElementById('maxTripsDay').textContent = maxDay;
+        document.getElementById('avgTippers').textContent = (totalTippers / shiftCount).toFixed(1);
+        document.getElementById('avgMachinery').textContent = (totalMachinery / shiftCount).toFixed(1);
+        document.getElementById('morningTrips').textContent = morningShiftTotal;
+        document.getElementById('eveningTrips').textContent = eveningShiftTotal;
+        document.getElementById('nightTrips').textContent = nightShiftTotal;
+        document.getElementById('totalDays').textContent = totalDays;
+        document.getElementById('lowTipperShifts').textContent = lowTipperShifts;
+        document.getElementById('lowMachineryShifts').textContent = lowMachineryShifts;
+    </script>
 </body>
 </html>
