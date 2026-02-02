@@ -11,14 +11,14 @@
             box-sizing: border-box;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
-        
+       
         body {
             background-color: #f5f7fa;
             color: #333;
             padding: 20px;
             line-height: 1.6;
         }
-        
+       
         .container {
             max-width: 1100px;
             margin: 0 auto;
@@ -27,86 +27,86 @@
             box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
             overflow: hidden;
         }
-        
+       
         header {
             background-color: #2c3e50;
             color: white;
             padding: 20px;
             text-align: center;
         }
-        
+       
         h1 {
             font-size: 1.8rem;
             margin-bottom: 5px;
         }
-        
+       
         .month-year {
             font-size: 1.2rem;
             color: #ecf0f1;
             font-weight: 300;
         }
-        
+       
         .data-section {
             padding: 20px;
         }
-        
+       
         table {
             width: 100%;
             border-collapse: collapse;
             margin-top: 10px;
         }
-        
+       
         thead {
             background-color: #34495e;
             color: white;
         }
-        
+       
         th {
             padding: 12px 10px;
             text-align: left;
             font-weight: 600;
             font-size: 0.9rem;
         }
-        
+       
         tbody tr {
             border-bottom: 1px solid #eee;
         }
-        
+       
         tbody tr:nth-child(even) {
             background-color: #f9f9f9;
         }
-        
+       
         td {
             padding: 12px 10px;
             font-size: 0.95rem;
         }
-        
+       
         .shift {
             font-weight: 500;
             color: #2c3e50;
         }
-        
+       
         .daily-total {
             background-color: #ecf0f1;
             font-weight: 600;
         }
-        
+       
         .month-total {
             background-color: #2c3e50;
             color: white;
             font-weight: 600;
         }
-        
+       
         .tipper-red {
             color: #e74c3c;
             font-weight: 600;
         }
-        
+       
         .machinery-red {
             color: #e74c3c;
             font-weight: 600;
         }
-        
+       
         .total-section {
             margin-top: 25px;
             padding: 15px;
@@ -114,38 +114,38 @@
             border-radius: 5px;
             border-left: 4px solid #3498db;
         }
-        
+       
         .total-section p {
             margin-bottom: 8px;
             font-size: 1.05rem;
         }
-        
+       
         .highlight {
             font-weight: 600;
             color: #2c3e50;
         }
-        
+       
         .summary-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
             gap: 15px;
             margin-top: 20px;
         }
-        
+       
         .summary-card {
             background-color: #f8f9fa;
             padding: 15px;
             border-radius: 5px;
             border-top: 3px solid #3498db;
         }
-        
+       
         .summary-value {
             font-size: 1.5rem;
             font-weight: 700;
             color: #2c3e50;
             margin-top: 5px;
         }
-        
+       
         footer {
             text-align: center;
             padding: 15px;
@@ -154,24 +154,24 @@
             border-top: 1px solid #eee;
             margin-top: 20px;
         }
-        
+       
         @media (max-width: 768px) {
             body {
                 padding: 10px;
             }
-            
+           
             table {
                 font-size: 0.85rem;
             }
-            
+           
             th, td {
                 padding: 8px 6px;
             }
-            
+           
             .container {
                 border-radius: 5px;
             }
-            
+           
             .summary-grid {
                 grid-template-columns: 1fr;
             }
@@ -184,7 +184,7 @@
             <h1>DAILY LOG SHEET - MONTHLY REPORT</h1>
             <div class="month-year">Month: January | Year: 2026</div>
         </header>
-        
+       
         <div class="data-section">
             <table>
                 <thead>
@@ -202,7 +202,7 @@
                     <!-- Data will be populated by JavaScript -->
                 </tbody>
             </table>
-            
+           
             <div class="total-section">
                 <h3>Monthly Summary</h3>
                 <p><span class="highlight">Total trips for the month:</span> <span id="totalTrips">0</span></p>
@@ -213,7 +213,7 @@
                 <p><span class="highlight">Shifts with low tippers (&lt;6):</span> <span id="lowTipperShifts">0</span></p>
                 <p><span class="highlight">Shifts with low machinery (&lt;3):</span> <span id="lowMachineryShifts">0</span></p>
             </div>
-            
+           
             <div class="summary-grid">
                 <div class="summary-card">
                     <div>Morning Shifts</div>
@@ -233,59 +233,73 @@
                 </div>
             </div>
         </div>
-        
+       
         <footer>
             <p>Daily Log Sheet Report - January 2026 | Generated on: February 2, 2026</p>
             <p>Color coding: Tippers &lt;6 in red, Machinery &lt;3 in red</p>
         </footer>
     </div>
-    
+   
     <script>
         // Data for January 2026 (31 days)
         const logData = [];
         const totalDays = 31;
-        
+       
         // Function to generate random number within constraints
         function getRandomInt(min, max) {
             return Math.floor(Math.random() * (max - min + 1)) + min;
         }
-        
+       
+        // Function to format time in 12-hour format with AM/PM
+        function formatTime(hour, minute, period) {
+            let h = hour % 12;
+            if (h === 0) h = 12;
+            const minStr = minute.toString().padStart(2, '0');
+            return `${h}:${minStr} ${period}`;
+        }
+       
         // Generate data for each day
         for (let day = 1; day <= totalDays; day++) {
             // Format day with leading zero
             const dayStr = day.toString().padStart(2, '0');
             const date = `${dayStr}-01-2026`;
-            
+           
             // Morning shift (tippers 3-8, machinery 1-5) - some will be <3 for machinery
             const morningTippers = getRandomInt(3, 8);
             const morningMachinery = getRandomInt(1, 5); // Some will be <3
             const morningTrips = getRandomInt(8, 16);
-            
+            const morningStartMin = getRandomInt(0, 59);
+            const morningEndMin = getRandomInt(0, 59);
+           
             // Evening shift (tippers 4-9, machinery 2-5)
             const eveningTippers = getRandomInt(4, 9);
             const eveningMachinery = getRandomInt(2, 5); // Some will be <3
             const eveningTrips = getRandomInt(10, 22);
-            
+            const eveningStartMin = getRandomInt(0, 59);
+            const eveningEndMin = getRandomInt(0, 59);
+           
             // Night shift (tippers 5-10, machinery 1-5)
             const nightTippers = getRandomInt(5, 10);
             const nightMachinery = getRandomInt(1, 5); // Some will be <3
             const nightTrips = getRandomInt(12, 30);
-            
+            const nightStartMin = getRandomInt(0, 59);
+            const nightEndMin = getRandomInt(0, 59);
+           
             // Daily total
             const dailyTotal = morningTrips + eveningTrips + nightTrips;
-            
+           
             logData.push({
                 date,
                 dayNumber: day,
                 shifts: [
-                    { name: "Morning", start: "8:00 AM", end: "12:00 PM", tippers: morningTippers, machinery: morningMachinery, trips: morningTrips },
-                    { name: "Evening", start: "1:00 PM", end: "6:00 PM", tippers: eveningTippers, machinery: eveningMachinery, trips: eveningTrips },
-                    { name: "Night", start: "8:00 PM", end: "6:00 AM", tippers: nightTippers, machinery: nightMachinery, trips: nightTrips }
+                    { name: "Morning", start: formatTime(8, morningStartMin, 'AM'), end: formatTime(12, morningEndMin, 'PM'), tippers: morningTippers, machinery: morningMachinery, trips: morningTrips },
+                    { name: "Evening", start: formatTime(1, eveningStartMin, 'PM'), end: formatTime(6, eveningEndMin, 'PM'), tippers: eveningTippers, machinery: eveningMachinery, trips: eveningTrips },
+                    { name: "Night", start: formatTime(8, nightStartMin, 'PM'), end: formatTime(6, nightEndMin, 'AM'), tippers: nightTippers, machinery: nightMachinery, trips: nightTrips }
                 ],
                 dailyTotal
             });
         }
-        
+       
         // Calculate totals
         let totalTrips = 0;
         let morningShiftTotal = 0;
@@ -298,25 +312,25 @@
         let shiftCount = 0;
         let lowTipperShifts = 0;
         let lowMachineryShifts = 0;
-        
+       
         // Populate table and calculate totals
         const logDataElement = document.getElementById('logData');
-        
+       
         logData.forEach((dayData, index) => {
             const dayNumber = index + 1;
-            
+           
             // Add each shift row
             dayData.shifts.forEach((shift, shiftIndex) => {
                 const row = document.createElement('tr');
-                
+               
                 // Apply color coding classes
                 const tipperClass = shift.tippers < 6 ? 'tipper-red' : '';
                 const machineryClass = shift.machinery < 3 ? 'machinery-red' : '';
-                
+               
                 // Count low tippers and machinery shifts
                 if (shift.tippers < 6) lowTipperShifts++;
                 if (shift.machinery < 3) lowMachineryShifts++;
-                
+               
                 if (shiftIndex === 0) {
                     row.innerHTML = `
                         <td rowspan="3">${dayData.date}</td>
@@ -337,19 +351,19 @@
                         <td>${shift.trips}</td>
                     `;
                 }
-                
+               
                 logDataElement.appendChild(row);
-                
+               
                 // Update totals
                 if (shift.name === "Morning") morningShiftTotal += shift.trips;
                 if (shift.name === "Evening") eveningShiftTotal += shift.trips;
                 if (shift.name === "Night") nightShiftTotal += shift.trips;
-                
+               
                 totalTippers += shift.tippers;
                 totalMachinery += shift.machinery;
                 shiftCount++;
             });
-            
+           
             // Add daily total row - using "Daily Total Trips" format
             const dailyRow = document.createElement('tr');
             dailyRow.className = 'daily-total';
@@ -358,17 +372,17 @@
                 <td>${dayData.dailyTotal}</td>
             `;
             logDataElement.appendChild(dailyRow);
-            
+           
             // Update totals
             totalTrips += dayData.dailyTotal;
-            
+           
             // Track max daily trips
             if (dayData.dailyTotal > maxDailyTrips) {
                 maxDailyTrips = dayData.dailyTotal;
                 maxDay = dayNumber;
             }
         });
-        
+       
         // Add month total row
         const monthRow = document.createElement('tr');
         monthRow.className = 'month-total';
@@ -377,7 +391,7 @@
             <td>${totalTrips}</td>
         `;
         logDataElement.appendChild(monthRow);
-        
+       
         // Update summary values
         document.getElementById('totalTrips').textContent = totalTrips;
         document.getElementById('avgTrips').textContent = (totalTrips / totalDays).toFixed(1);
